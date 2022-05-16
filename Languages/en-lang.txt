@@ -20,7 +20,19 @@ MMM     MMM       DDDD  DDDD       DDDD  DDDD
 MMM     MMM       DDDDDD           DDDDDD     
 
 
+MDD - Multidimensional Dungeons
 
+
+
+New game
+
+Saved game
+
+Language
+
+
+
+TXC & Co., Ltd.
 
 
 For centuries primitive tribes have been at war with each other...
