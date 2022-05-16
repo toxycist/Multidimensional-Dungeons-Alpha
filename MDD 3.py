@@ -7,13 +7,15 @@ from keyboard import *
 
 list_to_update = list()
 
-class MainMenu():
+class Menu():
     def __init__(self):
-        self.buttons = [read_lines(27, 27), read_lines(29, 29), read_lines(31, 31)]
+        self.buttons = []
         self.selected_button = -1
-
+        self.title = ""
+        self.additional_info = ""
+    
     def select_next(self, name):
-        if self.selected_button < 2:
+        if self.selected_button < len(self.buttons) - 1:
             self.selected_button += 1
         else:
             self.selected_button = 0
@@ -23,40 +25,53 @@ class MainMenu():
         if self.selected_button > 0:
             self.selected_button -= 1
         else:
-            self.selected_button = 2
+            self.selected_button = len(self.buttons) - 1
         self.display()
-
+    
     def display(self):
         clear_screen()
-        printwb(true_append(read_lines(23, 23), "\n" * 2))
+        if self.title != "":
+            printwb(self.title + "\n" * 4)
         for index, button in enumerate(self.buttons):
             if self.selected_button == index:
-                printwb(["[" + button[0] + "]"])
+                printwb(["[" + button + "]"], border_width_u = 0)
             else:
-                printwb(button)
-        printwb(true_append(["\n" * 2], read_lines(35, 35)[0]))
+                printwb(button, border_width_u = 0)
+        if self.additional_info != "":
+            printwb("\n" * 7, border_width_u = 0)
+            printwb(self.additional_info, border_width_u = 0)
     
     def bind(self):
         on_press_key("down", self.select_next)
         on_press_key("up", self.select_previous)
+
+class MainMenu(Menu):
+    def __init__(self):
+        super().__init__()
+        self.buttons = [read_lines(27, 27), read_lines(29, 29), read_lines(31, 31)]
+        self.title = read_lines(23, 23)
+        self.additional_info = read_lines(35, 35)
 
 def clear_screen():
     """Clears all text from the screen"""
     sleep(0.5)
     system("cls")
 
-def printwb(list_of_strings, border_width_l = 4, border_width_u = 2):
-    """Prints text with borders at left and up edges of the screen, so it looks cooler. Returns 0 if all's ok and 1 if list_of_strings == None"""
+def printwb(string, border_width_l = 4, border_width_u = 2):
+    """Prints text with borders at left and up, so it looks cooler. params: string can be str or list(every element must be str and will be printed on a new line), border_width_u: how many lines will separate text from the previous text(the up border of the window), border_width_l: how many lines will separate text from the left border of the window. Returns 0 if all's ok and 1 if string is not list or str."""
     print("\n" * border_width_u)
-    if list_of_strings != None:
-        for string in list_of_strings:
-            print(" " * border_width_l + string)
+    if isinstance(string, str):
+        print(" " * border_width_l + string)
+        return 0
+    elif isinstance(string, list):
+        for element in string:
+            print(" " * border_width_l + element)
         return 0
     else:
         return 1
 
 def read_lines(from_l, to_l):
-    """Reads only several lines from a file"""
+    """Reads only several lines from a file. params: from_l: from where to start, to_l: where to finish. Returns list of lines or a string if there was only one line to read"""
     list_of_lines = list()
     with codecs.open("Languages/ru-lang.txt", "r", encoding="UTF-8") as f:
         list_of_lines = f.readlines()
@@ -64,6 +79,8 @@ def read_lines(from_l, to_l):
     sliced_list_of_lines = list_of_lines[from_l - 1: to_l]
     for line in sliced_list_of_lines:
         sliced_list_of_lines[sliced_list_of_lines.index(line)] = line.strip("\r\n")
+    if len(sliced_list_of_lines) == 1:
+        return sliced_list_of_lines[0]
     return sliced_list_of_lines
 
 def true_append(list, element):
@@ -88,4 +105,4 @@ main_menu.display()
 main_menu.bind()
 
 while True:
-    input()
+    pass
