@@ -1,41 +1,17 @@
-MMMM   MMMM                                   
-MMMMM MMMMM                                   
-MMM MMM MMM                                   
-MMM  M  MMM                                   
-MMM     MMM                                   
-MMM     MMM                                   
-
-MMMM   MMMM       DDDDDD                      
-MMMMM MMMMM       DDDD  DDDD                  
-MMM MMM MMM       DDDD    DDD                 
-MMM  M  MMM       DDDD    DDD                 
-MMM     MMM       DDDD  DDDD                  
-MMM     MMM       DDDDDD                      
-
-MMMM   MMMM       DDDDDD           DDDDDD     
-MMMMM MMMMM       DDDD  DDDD       DDDD  DDDD 
-MMM MMM MMM       DDDD    DDD      DDDD    DDD
-MMM  M  MMM       DDDD    DDD      DDDD    DDD
-MMM     MMM       DDDD  DDDD       DDDD  DDDD 
-MMM     MMM       DDDDDD           DDDDDD     
-
-
-MDD - Multidimensional Dungeons
-
-
-
-Neues Spiel
-
-Gespeichertes Spiel
-
-Sprache
-
-
-
-TXC & Co., Ltd.
-
-
-Seit Jahrhunderten führen primitive Stämme Krieg gegeneinander...
+loading_screen_phase1 = ["MMMM   MMMM", "MMMMM MMMMM", "MMM MMM MMM", "MMM  M  MMM", "MMM     MMM", "MMM     MMM"]
+loading_screen_phase2 = ["MMMM   MMMM       DDDDDD", "MMMMM MMMMM       DDDD  DDDD", "MMM MMM MMM       DDDD    DDD", "MMM  M  MMM       DDDD    DDD", "MMM     MMM       DDDD  DDDD", "MMM     MMM       DDDDDD"]
+loading_screen_phase3 = ["MMMM   MMMM       DDDDDD           DDDDDD", "MMMMM MMMMM       DDDD  DDDD       DDDD  DDDD", "MMM MMM MMM       DDDD    DDD      DDDD    DDD", "MMM  M  MMM       DDDD    DDD      DDDD    DDD", "MMM     MMM       DDDD  DDDD       DDDD  DDDD", "MMM     MMM       DDDDDD           DDDDDD"]
+main_menu_title = "MDD - Multidimensional Dungeons"
+main_menu_new_game = "Neues Spiel"
+main_menu_saved_game = "Gespeichertes Spiel"
+main_menu_language = "Sprache"
+main_menu_credits = "TXC & Co., Ltd."
+language_menu_ru = "Русский"
+language_menu_en = "English"
+language_menu_de = "Deutsch"
+language_menu_back = "Züruck"
+restart_to_change_the_language_message = "Neustart zum Ändern der Sprache"
+plot = """Seit Jahrhunderten führen primitive Stämme Krieg gegeneinander...
 Die Barbaren wollten nur eines...
 Zu zerstören...
 Um alles und jeden zu zerstören...
@@ -64,4 +40,4 @@ Er lernte, wie man Portale zu anderen Welten öffnet...
 Oder magische Kreaturen und Waffen aus den Fäden des Chaos zu erschaffen...
 Huerets Stamm gab sich den Namen Iraroth, was Herrschern bedeutet, und besiegte sehr schnell alle anderen Stämme...
 Alle Kreaturen begannen sich zu teilen, in Iraroths, ihre Untergebenen und...
-Menschen.
+Menschen."""

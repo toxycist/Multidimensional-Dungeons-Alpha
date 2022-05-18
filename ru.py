@@ -1,41 +1,17 @@
-MMMM   MMMM                                   
-MMMMM MMMMM                                   
-MMM MMM MMM                                   
-MMM  M  MMM                                   
-MMM     MMM                                   
-MMM     MMM                                   
-
-MMMM   MMMM       DDDDDD                      
-MMMMM MMMMM       DDDD  DDDD                  
-MMM MMM MMM       DDDD    DDD                 
-MMM  M  MMM       DDDD    DDD                 
-MMM     MMM       DDDD  DDDD                  
-MMM     MMM       DDDDDD                      
-
-MMMM   MMMM       DDDDDD           DDDDDD     
-MMMMM MMMMM       DDDD  DDDD       DDDD  DDDD 
-MMM MMM MMM       DDDD    DDD      DDDD    DDD
-MMM  M  MMM       DDDD    DDD      DDDD    DDD
-MMM     MMM       DDDD  DDDD       DDDD  DDDD 
-MMM     MMM       DDDDDD           DDDDDD     
-
-
-MDD - Multidimensional Dungeons
-
-
-
-Новая игра
-
-Сохранённая игра
-
-Язык
-
-
-
-TXC & Co., Ltd.
-
-
-Испокон веков первобытные племена воевали между собой...
+loading_screen_phase1 = ["MMMM   MMMM", "MMMMM MMMMM", "MMM MMM MMM", "MMM  M  MMM", "MMM     MMM", "MMM     MMM"]
+loading_screen_phase2 = ["MMMM   MMMM       DDDDDD", "MMMMM MMMMM       DDDD  DDDD", "MMM MMM MMM       DDDD    DDD", "MMM  M  MMM       DDDD    DDD", "MMM     MMM       DDDD  DDDD", "MMM     MMM       DDDDDD"]
+loading_screen_phase3 = ["MMMM   MMMM       DDDDDD           DDDDDD", "MMMMM MMMMM       DDDD  DDDD       DDDD  DDDD", "MMM MMM MMM       DDDD    DDD      DDDD    DDD", "MMM  M  MMM       DDDD    DDD      DDDD    DDD", "MMM     MMM       DDDD  DDDD       DDDD  DDDD", "MMM     MMM       DDDDDD           DDDDDD"]
+main_menu_title = "MDD - Multidimensional Dungeons"
+main_menu_new_game = "Новая игра"
+main_menu_saved_game = "Сохранённая игра"
+main_menu_language = "Язык"
+main_menu_credits = "TXC & Co., Ltd."
+language_menu_ru = "Русский"
+language_menu_en = "English"
+language_menu_de = "Deutsch"
+language_menu_back = "Назад"
+restart_to_change_the_language_message = "Перезапустите, чтобы сменить язык"
+plot = """Испокон веков первобытные племена воевали между собой...
 Варвары хотели только одного...
 Уничтожать...
 Уничтожать всё и вся...
@@ -64,4 +40,4 @@ TXC & Co., Ltd.
 Или создавать магических существ и оружие из струн Хаоса...
 Племя Уэрэта нарекло себя Ирарот, что значит Властители и очень быстро повергло все остальные племена...
 Все существа стали делиться на Ираротов, их подчинённых и...
-Людей.
+Людей."""

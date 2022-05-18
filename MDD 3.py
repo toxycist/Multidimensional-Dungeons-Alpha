@@ -2,10 +2,17 @@ import codecs
 from time import *
 from os import system
 from keyboard import *
+from importlib import *
+
+with open("current-lang.txt") as file:
+    language = import_module(file.readline())
 
 #screen height x screen width - 22 x 75
 
-list_to_update = list()
+class Button():
+    def __init__(self, name, command):
+        self.name = name
+        self.command = command
 
 class Menu():
     def __init__(self):
@@ -34,23 +41,61 @@ class Menu():
             printwb(self.title + "\n" * 4)
         for index, button in enumerate(self.buttons):
             if self.selected_button == index:
-                printwb(["[" + button + "]"], border_width_u = 0)
+                printwb(["[" + button.name + "]"], border_width_u = 0)
             else:
-                printwb(button, border_width_u = 0)
+                printwb(button.name, border_width_u = 0)
         if self.additional_info != "":
             printwb("\n" * 7, border_width_u = 0)
             printwb(self.additional_info, border_width_u = 0)
     
-    def bind(self):
-        on_press_key("down", self.select_next)
-        on_press_key("up", self.select_previous)
+    def button_do(self, name):
+        if self.selected_button != -1:
+            self.buttons[self.selected_button].command()
+    
+    def activate_menu(self):
+        self.remove_handler_down = on_press_key("down", self.select_next)
+        self.remove_handler_up = on_press_key("up", self.select_previous)
+        self.remove_handler_enter = on_press_key("enter", self.button_do)
+        self.display()
+    
+    def deactivate_menu(self):
+        self.remove_handler_down()
+        self.remove_handler_up()
+        self.remove_handler_enter()
+
+def change_language(nextl):
+    with open("current-lang.txt", "w") as file:
+        file.write(nextl)
+    global language
+    language = import_module(nextl)
+    clear_screen()
+    printwb(language.restart_to_change_the_language_message)
+
+class LanguageMenu(Menu):
+    def __init__(self):
+        super().__init__()
+        self.buttons = [Button(language.language_menu_ru, lambda: change_language("ru")), 
+                        Button(language.language_menu_en, lambda: change_language("en")), 
+                        Button(language.language_menu_de, lambda: change_language("de")),
+                        Button(language.language_menu_back, lambda: change_menu(self, main_menu))]
+        self.title = language.main_menu_language
+
+language_menu = LanguageMenu()
 
 class MainMenu(Menu):
     def __init__(self):
         super().__init__()
-        self.buttons = [read_lines(27, 27), read_lines(29, 29), read_lines(31, 31)]
-        self.title = read_lines(23, 23)
-        self.additional_info = read_lines(35, 35)
+        self.buttons = [Button(language.main_menu_new_game, input), 
+                        Button(language.main_menu_saved_game, input), 
+                        Button(language.main_menu_language, lambda: change_menu(self, language_menu))]
+        self.title = language.main_menu_title
+        self.additional_info = language.main_menu_credits
+
+main_menu = MainMenu()
+
+def change_menu(previousm, nextm):
+    previousm.deactivate_menu()
+    nextm.activate_menu()
 
 def clear_screen():
     """Clears all text from the screen"""
@@ -70,39 +115,24 @@ def printwb(string, border_width_l = 4, border_width_u = 2):
     else:
         return 1
 
-def read_lines(from_l, to_l):
-    """Reads only several lines from a file. params: from_l: from where to start, to_l: where to finish. Returns list of lines or a string if there was only one line to read"""
-    list_of_lines = list()
-    with codecs.open("Languages/ru-lang.txt", "r", encoding="UTF-8") as f:
-        list_of_lines = f.readlines()
-        f.close()
-    sliced_list_of_lines = list_of_lines[from_l - 1: to_l]
-    for line in sliced_list_of_lines:
-        sliced_list_of_lines[sliced_list_of_lines.index(line)] = line.strip("\r\n")
-    if len(sliced_list_of_lines) == 1:
-        return sliced_list_of_lines[0]
-    return sliced_list_of_lines
-
 def true_append(list, element):
-    """Appends an element to the list and returns THE NEW LIST"""
+    """Appends an element to the list and returns the new list"""
     list.append(element)
     return list
 
 def display_loading_screen():
     """Displays loading screen"""
-    printwb(read_lines(1, 6), 19, 10)
+    printwb(language.loading_screen_phase1, 19, 10)
     clear_screen()
-    printwb(read_lines(8, 13), 19, 10)
+    printwb(language.loading_screen_phase2, 19, 10)
     clear_screen()
-    printwb(read_lines(15, 20), 19, 10)
+    printwb(language.loading_screen_phase3, 19, 10)
     sleep(1.5)
     clear_screen()
 
 display_loading_screen()
-main_menu = MainMenu()
 
-main_menu.display()
-main_menu.bind()
+main_menu.activate_menu()
 
 while True:
     pass

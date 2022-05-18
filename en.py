@@ -1,41 +1,17 @@
-MMMM   MMMM                                   
-MMMMM MMMMM                                   
-MMM MMM MMM                                   
-MMM  M  MMM                                   
-MMM     MMM                                   
-MMM     MMM                                   
-
-MMMM   MMMM       DDDDDD                      
-MMMMM MMMMM       DDDD  DDDD                  
-MMM MMM MMM       DDDD    DDD                 
-MMM  M  MMM       DDDD    DDD                 
-MMM     MMM       DDDD  DDDD                  
-MMM     MMM       DDDDDD                      
-
-MMMM   MMMM       DDDDDD           DDDDDD     
-MMMMM MMMMM       DDDD  DDDD       DDDD  DDDD 
-MMM MMM MMM       DDDD    DDD      DDDD    DDD
-MMM  M  MMM       DDDD    DDD      DDDD    DDD
-MMM     MMM       DDDD  DDDD       DDDD  DDDD 
-MMM     MMM       DDDDDD           DDDDDD     
-
-
-MDD - Multidimensional Dungeons
-
-
-
-New game
-
-Saved game
-
-Language
-
-
-
-TXC & Co., Ltd.
-
-
-For centuries primitive tribes have been at war with each other...
+loading_screen_phase1 = ["MMMM   MMMM", "MMMMM MMMMM", "MMM MMM MMM", "MMM  M  MMM", "MMM     MMM", "MMM     MMM"]
+loading_screen_phase2 = ["MMMM   MMMM       DDDDDD", "MMMMM MMMMM       DDDD  DDDD", "MMM MMM MMM       DDDD    DDD", "MMM  M  MMM       DDDD    DDD", "MMM     MMM       DDDD  DDDD", "MMM     MMM       DDDDDD"]
+loading_screen_phase3 = ["MMMM   MMMM       DDDDDD           DDDDDD", "MMMMM MMMMM       DDDD  DDDD       DDDD  DDDD", "MMM MMM MMM       DDDD    DDD      DDDD    DDD", "MMM  M  MMM       DDDD    DDD      DDDD    DDD", "MMM     MMM       DDDD  DDDD       DDDD  DDDD", "MMM     MMM       DDDDDD           DDDDDD"]
+main_menu_title = "MDD - Multidimensional Dungeons"
+main_menu_new_game = "New game"
+main_menu_saved_game = "Saved game"
+main_menu_language = "Language"
+main_menu_credits = "TXC & Co., Ltd."
+language_menu_ru = "Русский"
+language_menu_en = "English"
+language_menu_de = "Deutsch"
+language_menu_back = "Back"
+restart_to_change_the_language_message = "Restart to change the language"
+plot = """For centuries primitive tribes have been at war with each other...
 The barbarians wanted only one thing...
 To destroy...
 To destroy anything and everything...
@@ -64,4 +40,4 @@ He learned how to open portals to other worlds...
 Or create magical creatures and weapons from the strings of Chaos...
 Huerat's tribe christened themselves Iraroth, which means Rulers, and very quickly defeated all the other tribes...
 All creatures became divided into Iraroths, their subordinates and...
-Humans.
+Humans."""
